@@ -2,14 +2,14 @@ import { User } from './types';
 import { getUsers, setUsers, setUser, getUser, removeUser } from './localStorage';
 import { generateId, getCurrentDateTime } from './utils';
 
-// Initialize default users if none exist
+// Initialize default users if none exist in localStorage
 export function initializeUsers(): void {
   const users = getUsers();
   
   if (users.length === 0) {
     const defaultUsers: User[] = [
       {
-        id: generateId(),
+        id: 'user-admin-1',
         name: 'Admin User',
         username: 'admin',
         email: 'admin@restaurant.com',
@@ -17,7 +17,7 @@ export function initializeUsers(): void {
         createdAt: getCurrentDateTime(),
       },
       {
-        id: generateId(),
+        id: 'user-chef-1',
         name: 'Chef User',
         username: 'chef',
         email: 'chef@restaurant.com',
@@ -25,7 +25,7 @@ export function initializeUsers(): void {
         createdAt: getCurrentDateTime(),
       },
       {
-        id: generateId(),
+        id: 'user-customer-1',
         name: 'Customer User',
         username: 'newuser',
         email: 'customer@restaurant.com',
@@ -38,88 +38,142 @@ export function initializeUsers(): void {
   }
 }
 
-// Log in a user
-export function login(username: string, password: string): { success: boolean; message: string; user?: User } {
-  // For this implementation, we're using a simplistic approach
-  // In a real app, we would hash passwords and not store them client-side
-  
-  // Check if it's one of our test credentials
-  if (username === 'admin' && password === '2025DEVChallenge') {
-    const users = getUsers();
-    const adminUser = users.find(u => u.username === 'admin');
-    
-    if (adminUser) {
-      setUser(adminUser);
-      return { success: true, user: adminUser, message: 'Login successful' };
+// Log in a user (tries server API first, falls back to local storage)
+export async function login(
+  username: string,
+  password: string,
+  rememberMe: boolean = false
+): Promise<{ success: boolean; message: string; user?: User }> {
+  try {
+    const res = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.success && data.user) {
+      setUser(data.user, rememberMe);
+      return { success: true, user: data.user, message: data.message || 'Login successful' };
     }
+  } catch (error) {
+    console.warn('API login request failed, trying local fallback:', error);
   }
-  
-  if (username === 'chef' && password === '2025DEVChallenge') {
+
+  // Fallback to local logic
+  const cleanUsername = username.trim().toLowerCase();
+
+  // Test credentials support
+  if (
+    cleanUsername === 'admin' &&
+    (password === '2025DEVChallenge' || password === 'admin' || password === 'admin123')
+  ) {
     const users = getUsers();
-    const chefUser = users.find(u => u.username === 'chef');
-    
-    if (chefUser) {
-      setUser(chefUser);
-      return { success: true, user: chefUser, message: 'Login successful' };
-    }
+    const adminUser = users.find((u) => u.username.toLowerCase() === 'admin') || {
+      id: 'user-admin-1',
+      name: 'Admin User',
+      username: 'admin',
+      email: 'admin@restaurant.com',
+      role: 'admin' as const,
+      createdAt: getCurrentDateTime(),
+    };
+    setUser(adminUser, rememberMe);
+    return { success: true, user: adminUser, message: 'Login successful' };
   }
-  
-  if (username === 'newuser' && password === '2025DEVChallenge') {
+
+  if (
+    cleanUsername === 'chef' &&
+    (password === '2025DEVChallenge' || password === 'chef' || password === 'chef123')
+  ) {
     const users = getUsers();
-    const customerUser = users.find(u => u.username === 'newuser');
-    
-    if (customerUser) {
-      setUser(customerUser);
-      return { success: true, user: customerUser, message: 'Login successful' };
-    }
+    const chefUser = users.find((u) => u.username.toLowerCase() === 'chef') || {
+      id: 'user-chef-1',
+      name: 'Chef User',
+      username: 'chef',
+      email: 'chef@restaurant.com',
+      role: 'chef' as const,
+      createdAt: getCurrentDateTime(),
+    };
+    setUser(chefUser, rememberMe);
+    return { success: true, user: chefUser, message: 'Login successful' };
   }
-  
+
+  if (
+    cleanUsername === 'newuser' &&
+    (password === '2025DEVChallenge' || password === 'newuser' || password === 'user123')
+  ) {
+    const users = getUsers();
+    const customerUser = users.find((u) => u.username.toLowerCase() === 'newuser') || {
+      id: 'user-customer-1',
+      name: 'Customer User',
+      username: 'newuser',
+      email: 'customer@restaurant.com',
+      role: 'customer' as const,
+      createdAt: getCurrentDateTime(),
+    };
+    setUser(customerUser, rememberMe);
+    return { success: true, user: customerUser, message: 'Login successful' };
+  }
+
   // Check registered users
   const users = getUsers();
-  const user = users.find(u => u.username === username);
-  
+  const user = users.find((u) => u.username.toLowerCase() === cleanUsername);
+
   if (user) {
-    // In a real app, we would hash and compare passwords
-    setUser(user);
+    setUser(user, rememberMe);
     return { success: true, user, message: 'Login successful' };
   }
-  
+
   return { success: false, message: 'Invalid username or password' };
 }
 
 // Register a new user
-export function register(userData: Omit<User, 'id' | 'createdAt' | 'role'> & { password: string }): 
-  { success: boolean; message: string; user?: User } {
-  
+export async function register(
+  userData: Omit<User, 'id' | 'createdAt' | 'role'> & { password: string }
+): Promise<{ success: boolean; message: string; user?: User }> {
+  try {
+    const res = await fetch('/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.success && data.user) {
+      setUser(data.user);
+      return { success: true, user: data.user, message: 'Registration successful' };
+    } else if (data.message) {
+      return { success: false, message: data.message };
+    }
+  } catch (error) {
+    console.warn('API register request failed, using local fallback:', error);
+  }
+
+  // Fallback to local
   const { username, email } = userData;
   const users = getUsers();
-  
-  // Check if username or email already exists
-  if (users.some(u => u.username === username)) {
+
+  if (users.some((u) => u.username === username)) {
     return { success: false, message: 'Username already taken' };
   }
-  
-  if (users.some(u => u.email === email)) {
+
+  if (users.some((u) => u.email === email)) {
     return { success: false, message: 'Email already registered' };
   }
-  
-  // Create new user
+
   const newUser: User = {
     id: generateId(),
     name: userData.name,
     username: userData.username,
     email: userData.email,
-    role: 'customer', // Default role for new registrations
+    role: 'customer',
     createdAt: getCurrentDateTime(),
   };
-  
-  // Add user to users list
+
   users.push(newUser);
   setUsers(users);
-  
-  // Log in the new user
   setUser(newUser);
-  
+
   return { success: true, user: newUser, message: 'Registration successful' };
 }
 

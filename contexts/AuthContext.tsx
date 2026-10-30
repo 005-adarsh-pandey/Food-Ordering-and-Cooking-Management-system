@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (username: string, password: string) => Promise<{ success: boolean; message: string }>;
+  login: (username: string, password: string, rememberMe?: boolean) => Promise<{ success: boolean; message: string }>;
   register: (userData: any) => Promise<{ success: boolean; message: string }>;
   logout: () => void;
 }
@@ -30,14 +30,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Initialize default users
     initializeUsers();
     
-    // Check if user is already logged in
+    // Check if user is already logged in for this tab session
     const currentUser = getCurrentUser();
     setUser(currentUser);
     setLoading(false);
   }, []);
 
-  const login = async (username: string, password: string) => {
-    const result = authLogin(username, password);
+  const login = async (username: string, password: string, rememberMe: boolean = false) => {
+    const result = await authLogin(username, password, rememberMe);
     
     if (result.success && result.user) {
       setUser(result.user);
@@ -56,7 +56,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const register = async (userData: any) => {
-    const result = authRegister(userData);
+    const result = await authRegister(userData);
     
     if (result.success && result.user) {
       setUser(result.user);

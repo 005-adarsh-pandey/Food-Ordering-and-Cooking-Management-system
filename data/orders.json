@@ -1,0 +1,106 @@
+[
+  {
+    "id": "order-sample-1",
+    "userId": "user-customer-1",
+    "customerName": "John Smith",
+    "items": [
+      {
+        "id": "item-1",
+        "menuItemId": "menu-1",
+        "name": "Classic Burger",
+        "price": 1080,
+        "quantity": 2
+      },
+      {
+        "id": "item-2",
+        "menuItemId": "menu-6",
+        "name": "French Fries",
+        "price": 415,
+        "quantity": 1
+      }
+    ],
+    "status": "preparing",
+    "totalAmount": 2575,
+    "createdAt": "2026-09-28T16:24:12.560Z",
+    "updatedAt": "2026-09-28T16:34:12.560Z"
+  },
+  {
+    "id": "order-sample-2",
+    "userId": "user-customer-1",
+    "customerName": "Sarah Johnson",
+    "items": [
+      {
+        "id": "item-3",
+        "menuItemId": "menu-3",
+        "name": "Margherita Pizza",
+        "price": 1240,
+        "quantity": 1
+      }
+    ],
+    "status": "ready",
+    "totalAmount": 1240,
+    "createdAt": "2026-09-28T16:44:12.560Z",
+    "updatedAt": "2026-09-29T05:14:55.050Z"
+  },
+  {
+    "id": "bwnxs4fwjomkwoks7o5qih",
+    "userId": "user-customer-1",
+    "customerName": "Customer User",
+    "items": [
+      {
+        "id": "omh705mnqfnbp4aqgw79n8",
+        "menuItemId": "menu-1",
+        "name": "Classic Burger",
+        "price": 1080,
+        "quantity": 1
+      },
+      {
+        "id": "oau9uya2psip62m7v0h3mo",
+        "menuItemId": "menu-2",
+        "name": "Caesar Salad",
+        "price": 830,
+        "quantity": 1
+      }
+    ],
+    "status": "delivered",
+    "totalAmount": 22.98,
+    "createdAt": "2026-09-28T17:12:25.733Z",
+    "updatedAt": "2026-09-28T17:14:12.102Z"
+  },
+  {
+    "id": "f1x5hm8q4ojyf3f1ckf7ol",
+    "userId": "user-customer-1",
+    "customerName": "Adarsh",
+    "items": [
+      {
+        "id": "vbtn5bs6hgs60linzsbmj",
+        "menuItemId": "menu-7",
+        "name": "Cheesecake",
+        "price": 580,
+        "quantity": 1
+      }
+    ],
+    "status": "delivered",
+    "totalAmount": 580,
+    "createdAt": "2026-09-29T05:04:51.168Z",
+    "updatedAt": "2026-09-29T05:05:44.767Z"
+  },
+  {
+    "id": "hsp57ybqtji0lst7rykajyo",
+    "userId": "smm4i69z11fyqjvypn3c1",
+    "customerName": "Adarsh Pandey",
+    "items": [
+      {
+        "id": "6d6defgixemxazsjk3bbjs",
+        "menuItemId": "menu-1",
+        "name": "Classic Burger",
+        "price": 1080,
+        "quantity": 1
+      }
+    ],
+    "status": "ready",
+    "totalAmount": 1080,
+    "createdAt": "2026-09-29T05:14:28.689Z",
+    "updatedAt": "2026-09-29T05:14:53.016Z"
+  }
+]

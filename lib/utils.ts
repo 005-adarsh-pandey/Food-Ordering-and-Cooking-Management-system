@@ -8,9 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'INR',
   }).format(amount);
 }
 
@@ -70,8 +70,8 @@ export function getUserOrders(userId: string): Order[] {
   return orders.filter((order) => order.userId === userId);
 }
 
-export function calculateDashboardStats(currentUser: User | null): DashboardStats {
-  const orders = getOrders();
+export function calculateDashboardStats(currentUser: User | null, customOrders?: Order[]): DashboardStats {
+  const orders = customOrders || getOrders();
   const menuItems = getMenuItems();
   
   // Count how many times each menu item appears in orders

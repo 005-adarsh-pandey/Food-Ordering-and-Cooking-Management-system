@@ -30,7 +30,7 @@ export default function AdminDashboardPage() {
     order => order.status === 'pending' || order.status === 'preparing'
   );
   
-  const stats = calculateDashboardStats(user);
+  const stats = calculateDashboardStats(user, orders);
 
   return (
     <div className="container mx-auto px-4 py-8">

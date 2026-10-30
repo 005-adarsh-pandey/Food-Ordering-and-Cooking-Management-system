@@ -91,7 +91,7 @@ export function MenuItemForm({ item, categories, onSubmit, onCancel }: MenuItemF
           name="price"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Price ($)</FormLabel>
+              <FormLabel>Price (₹)</FormLabel>
               <FormControl>
                 <Input
                   type="number"

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "menu-1",
+    "name": "Classic Burger",
+    "description": "Juicy beef patty with lettuce, tomato, onion, and special sauce",
+    "price": 1080,
+    "category": "Main Dishes",
+    "image": "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-2",
+    "name": "Caesar Salad",
+    "description": "Crisp romaine lettuce with parmesan, croutons and Caesar dressing",
+    "price": 830,
+    "category": "Starters",
+    "image": "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-3",
+    "name": "Margherita Pizza",
+    "description": "Classic pizza with tomato sauce, fresh mozzarella, and basil",
+    "price": 1240,
+    "category": "Main Dishes",
+    "image": "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-4",
+    "name": "Chocolate Brownie",
+    "description": "Warm chocolate brownie served with vanilla ice cream",
+    "price": 660,
+    "category": "Desserts",
+    "image": "https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-5",
+    "name": "Grilled Salmon",
+    "description": "Fresh salmon fillet with lemon herb butter",
+    "price": 1580,
+    "category": "Main Dishes",
+    "image": "https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-6",
+    "name": "French Fries",
+    "description": "Crispy golden fries with sea salt",
+    "price": 415,
+    "category": "Sides",
+    "image": "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-7",
+    "name": "Cheesecake",
+    "description": "Creamy New York style cheesecake",
+    "price": 580,
+    "category": "Desserts",
+    "image": "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-8",
+    "name": "Chicken Wings",
+    "description": "Spicy buffalo wings with blue cheese dip",
+    "price": 995,
+    "category": "Starters",
+    "image": "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-09-28T17:10:00.548Z",
+    "updatedAt": "2026-09-28T17:10:00.548Z"
+  },
+  {
+    "id": "menu-9",
+    "name": "Butter Chicken",
+    "description": "Tender chicken simmered in a rich, gently spiced tomato and butter gravy",
+    "price": 420,
+    "category": "Indian Dishes",
+    "image": "https://images.pexels.com/photos/9609844/pexels-photo-9609844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-10-30T18:45:00.000Z",
+    "updatedAt": "2026-10-30T18:45:00.000Z"
+  },
+  {
+    "id": "menu-10",
+    "name": "Paneer Tikka",
+    "description": "Char-grilled cubes of marinated paneer with peppers and onion",
+    "price": 320,
+    "category": "Indian Dishes",
+    "image": "https://images.pexels.com/photos/9609842/pexels-photo-9609842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-10-30T18:45:00.000Z",
+    "updatedAt": "2026-10-30T18:45:00.000Z"
+  },
+  {
+    "id": "menu-11",
+    "name": "Masala Dosa",
+    "description": "Crisp rice-and-lentil crepe filled with spiced potato, served with chutney",
+    "price": 220,
+    "category": "Indian Dishes",
+    "image": "https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-10-30T18:45:00.000Z",
+    "updatedAt": "2026-10-30T18:45:00.000Z"
+  },
+  {
+    "id": "menu-12",
+    "name": "Gulab Jamun",
+    "description": "Soft milk-solid dumplings soaked in fragrant cardamom and saffron syrup",
+    "price": 180,
+    "category": "Indian Desserts",
+    "image": "https://images.pexels.com/photos/7449105/pexels-photo-7449105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "available": true,
+    "createdAt": "2026-10-30T18:45:00.000Z",
+    "updatedAt": "2026-10-30T18:45:00.000Z"
+  }
+]

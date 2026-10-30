@@ -21,25 +21,25 @@ export default function FinancialReportsPage() {
 
   // Sample data - In a real app, this would come from your backend
   const weeklyData = [
-    { name: 'Mon', revenue: 1200 },
-    { name: 'Tue', revenue: 1500 },
-    { name: 'Wed', revenue: 1800 },
-    { name: 'Thu', revenue: 1600 },
-    { name: 'Fri', revenue: 2200 },
-    { name: 'Sat', revenue: 2500 },
-    { name: 'Sun', revenue: 2100 },
+    { name: 'Mon', revenue: 99600 },
+    { name: 'Tue', revenue: 124500 },
+    { name: 'Wed', revenue: 149400 },
+    { name: 'Thu', revenue: 132800 },
+    { name: 'Fri', revenue: 182600 },
+    { name: 'Sat', revenue: 207500 },
+    { name: 'Sun', revenue: 174300 },
   ];
 
   const categoryData = [
-    { name: 'Main Dishes', revenue: 5200 },
-    { name: 'Starters', revenue: 2100 },
-    { name: 'Desserts', revenue: 1800 },
-    { name: 'Beverages', revenue: 1500 },
-    { name: 'Sides', revenue: 900 },
+    { name: 'Main Dishes', revenue: 431600 },
+    { name: 'Starters', revenue: 174300 },
+    { name: 'Desserts', revenue: 149400 },
+    { name: 'Beverages', revenue: 124500 },
+    { name: 'Sides', revenue: 74700 },
   ];
 
   const totalRevenue = weeklyData.reduce((sum, day) => sum + day.revenue, 0);
-  const averageOrderValue = 32.50;
+  const averageOrderValue = 2697.50;
   const totalOrders = 324;
 
   return (

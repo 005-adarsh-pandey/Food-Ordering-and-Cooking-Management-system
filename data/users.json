@@ -1,0 +1,38 @@
+[
+  {
+    "id": "user-admin-1",
+    "name": "Admin User",
+    "username": "admin",
+    "email": "admin@restaurant.com",
+    "role": "admin",
+    "createdAt": "2026-09-28T16:54:12.559Z",
+    "password": "2025DEVChallenge"
+  },
+  {
+    "id": "user-chef-1",
+    "name": "Chef User",
+    "username": "chef",
+    "email": "chef@restaurant.com",
+    "role": "chef",
+    "createdAt": "2026-09-28T16:54:12.560Z",
+    "password": "2025DEVChallenge"
+  },
+  {
+    "id": "user-customer-1",
+    "name": "Customer User",
+    "username": "newuser",
+    "email": "customer@restaurant.com",
+    "role": "customer",
+    "createdAt": "2026-09-28T16:54:12.560Z",
+    "password": "2025DEVChallenge"
+  },
+  {
+    "id": "smm4i69z11fyqjvypn3c1",
+    "name": "Adarsh Pandey",
+    "username": "adarsh",
+    "email": "ap272003@gmail.com",
+    "role": "customer",
+    "createdAt": "2026-09-29T05:08:51.659Z",
+    "password": "adarsh123"
+  }
+]

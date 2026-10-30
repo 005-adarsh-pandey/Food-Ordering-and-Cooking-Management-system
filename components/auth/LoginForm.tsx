@@ -47,7 +47,7 @@ export function LoginForm() {
       setIsLoading(true);
       setError(null);
       
-      const result = await login(data.username, data.password);
+      const result = await login(data.username, data.password, data.rememberMe);
       
       if (!result.success) {
         setError(result.message);
@@ -121,18 +121,6 @@ export function LoginForm() {
               'Login'
             )}
           </Button>
-          
-          <div>
-            <p className="text-sm text-center text-muted-foreground">
-              Test credentials:
-              <br />
-              Admin: username: admin, password: 2025DEVChallenge
-              <br />
-              Chef: username: chef, password: 2025DEVChallenge
-              <br />
-              User: username: newuser, password: 2025DEVChallenge
-            </p>
-          </div>
         </form>
       </CardContent>
       <CardFooter className="flex justify-center">
